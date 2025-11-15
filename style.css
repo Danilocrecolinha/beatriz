@@ -1,0 +1,100 @@
+/* Variáveis */
+:root {
+    --heart-color: #ff4d6d;
+    --text-color: #fff;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    position: relative;
+    color: var(--text-color);
+    height: 100vh;
+    width: 100vw;
+    background-color: #1b0b3b;
+}
+
+/* Fundo com leve galaxia */
+#galaxy {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at center, #2e004f 0%, #1b0b3b 100%);
+    filter: brightness(1.2);
+}
+
+/* Container central */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 600px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease forwards;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeIn 3s ease forwards;
+}
+
+/* Botão */
+.btn {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    border: none;
+    background: var(--heart-color);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Animações do conteúdo */
+@keyframes popHeart {
+    0% { transform: scale(0); opacity: 1;}
+    50% { transform: scale(1.5); opacity: 1;}
+    100% { transform: scale(1); opacity: 0;}
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+/* SEU CÓDIGO ORIGINAL AQUI... */
+
+/* ------------------------------- */
+/* TRANSIÇÃO SUAVE ENTRE PÁGINAS   */
+/* ------------------------------- */
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}

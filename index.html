@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Minha Princesa 💖</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+
+  <style>
+    /* Aviso no canto inferior central */
+    #interaction-alert {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 12px;
+      pointer-events: none; /* não bloqueia clique */
+      z-index: 9999;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 3D stage -->
+  <canvas id="galaxy"></canvas>
+
+  <!-- Foreground -->
+  <div class="container fade-root" role="main" aria-label="Mensagem romântica">
+    <h1 class="main-title">Beatriz</h1>
+    <p class="subtitle">Um pequeno gesto para demostrar o quão especial você é.</p>
+
+    <button class="btn pulse" id="enter-btn" aria-label="Ir para a página romântica">
+      💫 Clique aqui
+    </button>
+  </div>
+
+  <!-- Visual petals layer (only JS controls this) -->
+  <div id="petals-layer" aria-hidden="true"></div>
+
+  <!-- Aviso de interações -->
+  <div id="interaction-alert">💖 Mova o mouse e clique na tela para criar efeitos visuais!</div>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+
+  <!-- PREMIUM TRANSITION -->
+  <script>
+    document.getElementById('enter-btn').addEventListener('click', () => {
+      
+      // Apagar tudo suavemente
+      gsap.to('.fade-root', { 
+        y: -40, 
+        autoAlpha: 0, 
+        duration: 0.8, 
+        ease: "power3.inOut" 
+      });
+
+      gsap.to('#galaxy', { 
+        opacity: 0, 
+        duration: 1.2, 
+        ease: "power3.inOut" 
+      });
+
+      // Delay para ir à próxima página
+      setTimeout(() => {
+        window.location.href = "romance.html";
+      }, 900);
+    });
+  </script>
+
+  <!-- PETALS REALISTAS via JS -->
+  <script>
+    function createPetal() {
+        const petal = document.createElement("div");
+        petal.classList.add("petal");
+
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.animationDuration = 4 + Math.random() * 4 + "s";
+        petal.style.animationDelay = Math.random() * 2 + "s";
+
+        document.getElementById("petals-layer").appendChild(petal);
+
+        setTimeout(() => petal.remove(), 9000);
+    }
+
+    setInterval(createPetal, 280);
+  </script>
+
+</body>
+</html>

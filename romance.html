@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Princesa Beatriz</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="romance.css">
+
+  <!-- Three.js and GSAP via CDN (graceful degradation) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+</head>
+<body>
+  <!-- Stage (stacked canvases) -->
+  <div id="stage">
+    <canvas id="three-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+    <canvas id="effects-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+  </div>
+
+  <!-- Foreground content -->
+  <main class="content">
+    <div class="brand" role="region" aria-label="Mensagem romântica">
+      <h1 class="title">Você é Perfeita 💖</h1>
+      <p class="subtitle" id="compliment" aria-live="polite">Você ilumina o mundo.</p>
+      <div class="controls" role="group" aria-label="Controles">
+        <button id="audio-toggle" aria-label="Tocar ou pausar música">🔈 Música</button>
+    </div>
+
+    <div class="hint">Clique na tela para soltar um cometa — mexa o mouse para interagir.</div>
+  </main>
+
+  <!-- Optional audio: coloque romance.mp3 na mesma pasta -->
+<audio id="bg-audio" loop preload="auto">
+  <source src="romance.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio HTML5.
+</audio>
+
+
+  <!-- JS -->
+  <script src="romance.js"></script>
+</body>
+</html>
